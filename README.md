@@ -110,7 +110,6 @@ Briefly for my solution to be accordingly with the assessment requirements I've 
 
 * I'm using ESP32 DevKit V1 as the target hardware platform.
 * To configure a broker running on ESP32 I'm just using the library **sMQTTBroker.h**.
-* The Hardware Abstraction Layer is just a way to improve your code, not being a low-level code, and yet use it for unit testing.
 * An LCD display 16x2 with an I2C module will be used to display the content of this JSON format.
 ```json
 { 
