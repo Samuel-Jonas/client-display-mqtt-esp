@@ -1,26 +1,29 @@
 #include <Arduino.h>
-#include "Display_LCD_I2C_HAL.h"
+#include <ArduinoJson.h>
 #include <WiFi.h>
 #include <PubSubClient.h>
+#include <LiquidCrystal_I2C.h>
 
 #define SUBSCRIBE_TOPIC "test/trimble"
+#define LCD_ADDRESS 0x27
+#define LCD_COLUMNS 16
+#define LCD_ROWS 2
 
-// Replace the next variables with your SSID/Password combination
-const char* ssid = "REPLACE_WITH_YOUR_SSID";
-const char* password = "REPLACE_WITH_YOUR_PASSWORD";
+const char* WIFI_SSID = "brisa-3091372";
+const char* WIFI_PASSWORD = "teskdl6u";
 
-// Add your MQTT Broker IP address, example:
-//const char* mqtt_server = broker IP device runing in another esp;
-const char* mqtt_server = "YOUR_MQTT_BROKER_IP_ADDRESS";
+const char* mqtt_server = "192.168.0.5";
+const int mqtt_port = 1883;
+char print_message[32] = "";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-Display_LCD_I2C lcd(LCD_DISPLAY_ADDRESS, LCD_DISPLAY_COLUMNS, LCD_DISPLAY_ROWS);
+LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_COLUMNS, LCD_ROWS);
 
 void connect_to_wiFi() {
   WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
   Serial.print("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -34,10 +37,14 @@ void connect_to_wiFi() {
 }
 
 void callback(char* topic, byte* message, unsigned int length) {
+  StaticJsonDocument<256> doc;
   Serial.print("Message arrived on topic: ");
   Serial.print(topic);
   Serial.print(". Message: ");
   String messageTemp;
+
+  deserializeJson(doc, (const byte*)message, length);
+  strlcpy(print_message, doc["print"] | "default", sizeof(print_message));
   
   for (int i = 0; i < length; i++) {
     messageTemp += (char)message[i];
@@ -47,17 +54,21 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   lcd.setCursor(0, 0);
 
-  lcd.print(messageTemp);
-  delay(1000);
+  lcd.print(print_message);
+  Serial.println(print_message);
+  delay(3000);
 
   lcd.clear();
 }
 
 void reconnect() {
+
+  client.setServer(mqtt_server, mqtt_port);
+
   while (!client.connected()) {
     Serial.print("Seeking MQTT connection...");
 
-    if (client.connect("ESP32")) {
+    if (client.connect("ESP32Client")) {
       Serial.println("connected");
 
       client.subscribe("test/trimble");
@@ -74,13 +85,26 @@ void setup() {
   Serial.begin(115200);
   connect_to_wiFi();
 
-  client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
-  client.subscribe("test/trimble");
+  client.subscribe(SUBSCRIBE_TOPIC);
+  Serial.print("This client was subcribed at: ");
+  Serial.println(SUBSCRIBE_TOPIC);
 
-  lcd.begin(); //initialize
+  lcd.init();
+  Serial.println("LCD was initialized");
   
   lcd.backlight(); // turn on the black light
+  lcd.noBacklight();
+  lcd.backlight();
+  lcd.setBacklight(255);
+  Serial.println("black light is on");
+
+  lcd.setCursor(0, 0);
+
+  lcd.print("Hello, World!");
+  delay(1000);
+
+  lcd.clear();
 }
 
 void loop() {
@@ -90,5 +114,3 @@ void loop() {
 
   client.loop();
 }
-
-
