@@ -288,12 +288,12 @@ _Follow these steps to use the project and check the feature._
 <img  src="images/mqtt-explorer-configure.png" width="810" height="456">
 <br>
 <br>
+
 ```json
 { 
     "print": "MESSAGE" 
 }
 ```
-
 16. Replace MESSAGE with your message, need to be maximum 16 characters to see perfecly the message in the display.
 <br>
 <br>
