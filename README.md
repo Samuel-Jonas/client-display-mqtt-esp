@@ -123,67 +123,6 @@ To get a local copy up and running follow these simple example steps.
 
 #### Wiring for the display and the ESP32
 
-<style>
-  .rnthl {
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-left: 4px;
-    margin-right: 4px;
-    border-radius: 4px;
-    margin: 0;
-    color: #fff;
-    display: inline-block;
-  }
-
-  .rntcblack {
-    background-color: #333;
-  }
-
-  .rntcred {
-    background-color: #c33;
-    color: #fff !important;
-  }
-
-  .rntcgreen {
-    background-color: #090;
-  }
-
-  .rntcblue {
-    background-color: #06c;
-  }
-
-  table {
-    border-collapse: separate;
-    border-spacing: 0;
-    border-width: 1px 0 0 1px;
-    margin: 0 0 1.5em;
-    width: 100%;
-  }
-
-  table, td, th {
-    border: 1px solid rgba(0,0,0,.1);
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-  }
-
-  .container {
-      display: inline-block;
-  }
-
-  img {
-    display: inline-block;
-    vertical-align: middle; /* Align vertically in the middle */
-  }
-
-  table {
-    display: inline-block;
-    vertical-align: middle; /* Align vertically in the middle */
-    margin-left: 10px; /* Add margin for spacing */
-  }
-</style>
-
 <div class="container">
   <img style="display: inline-block;" src="images/esp32_LCD_bb.png" width="568" height="282">
 
