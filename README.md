@@ -65,7 +65,7 @@ Display controled by ESP32 using MQTT protocol
 
 To develop quickly I decided to abstract the responsibilities of building with makefile to this VSCode extension, so I just need to focus on the evaluation requirements and improve my README file for a better explanation.
 
-Assessment requirements:
+Assessment steps to considering:
 
 > 1. Select a target hardware platform (e.g., Raspberry Pi, BeagleBone, etc.)
 >
