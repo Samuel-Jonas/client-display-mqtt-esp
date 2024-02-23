@@ -40,7 +40,7 @@ void test_lcd_address(void) {
     }
   }
 
-  TEST_ASSERT_EQUAL_STRING(LCD_ADDRESS, lcd_address.c_str());
+  TEST_ASSERT_EQUAL_STRING(String(LCD_ADDRESS, HEX).c_str(), lcd_address.c_str());
 }
 
 void test_wifi_connected(void) {
@@ -65,6 +65,7 @@ void test_wifi_connected(void) {
 
 void setup()
 {
+  Serial.begin(115200);
   Wire.begin();
   delay(2000);
 

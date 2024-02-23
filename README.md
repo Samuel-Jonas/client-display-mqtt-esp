@@ -48,8 +48,8 @@ Display controled by ESP32 using MQTT protocol
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#unit-test">Unit Test Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -326,9 +326,66 @@ _Follow these steps to use the project and check the feature._
 <br>
 <br>
 
+13. Repeat from the 1st step to the 9th step with the second ESP32. Remember that in the 5th step the name is client-display-mqtt-esp. See the result below.
+<br>
+<br>
+<img  src="images/uploading-second-esp.png" width="880" height="456">
+<br>
+<br>
+
+14. It's time to run all application. Connected both ESP32 in different USB ports to power supply them. 
+<br>
+<br>
+<div>
+<img src="images/server-foto.jpg" alt="Logo" width="462" height="305">
+<img src="images/client-foto.jpg" alt="Logo" width="462" height="305">
+</div>
+<br>
+<br>
+
+15. Open your MQTT Explorer connected to IP address 192.168.0.5 port 1883. Choose the Topic and set the publish message below.
+<br>
+<br>
+<img  src="images/mqtt-explorer-configure.png" width="810" height="456">
+<br>
+<br>
+```json
+{ 
+    "print": "MESSAGE" 
+}
+```
+
+16. Replace MESSAGE with your message, need to be maximum 16 characters to see perfecly the message in the display.
+<br>
+<br>
+<img  src="images/publish-message.png" width="810" height="456">
+<br>
+<br>
+
+17. See your display with the message.
+<br>
+<br>
+<img  src="images/see-message.jpg" width="462" height="305">
+<br>
+<br>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- UNIT TESTS -->
+## Unit Tests Usage
+1. Check if the Switch PlatformIO Project Environment is on **client-display-mqtt-esp project**.
+<br>
+<br>
+<img  src="images/unit-test-environment.png" width="880" height="456">
+<br>
+<br>
 
+2. To run PlatformIO: Test click on the chemical baker symbol close to the trash symbol.
+<br>
+<br>
+<img  src="images/running-tests.png" width="880" height="456">
+<br>
+<br>
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -338,35 +395,16 @@ _Follow these steps to use the project and check the feature._
 - [ ] Develop a Hardware Abstraction Layer (HAL) header file to abstract the display.
 - [ ] Develop a library that implements the HAL for the selected display.
 - [x] Develop a program that listen to the "/test/trimble" MQTT topic, and print the message into the display.
-- [ ] Develop another program that publishes the message in format "{ "print": "MESSAGE" }".
-- [ ] Write unit tests for your code.
+- [x] Develop another program that publishes the message in format "{ "print": "MESSAGE" }".
+- [x] Write unit tests for your code.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -375,9 +413,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Samuel Jonas - samueljonas208@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: 
+- [client-display-mqtt-esp](https://github.com/Samuel-Jonas/client-display-mqtt-esp)
+- [broker-mqtt-esp](https://github.com/Samuel-Jonas/broker-mqtt-esp)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -386,49 +426,21 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+A big thank you to the following open source libraries that significantly contributed to the completion of this project:
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+* [sMQTTBroker library](https://github.com/terrorsl/sMQTTBroker)
+* [PlatformIO](https://platformio.org/)
+* [framework-arduinoespressif32 by PlatformIO](https://registry.platformio.org/tools/platformio/framework-arduinoespressif32)
+* [pubsubclient library](https://github.com/knolleary/pubsubclient)
+* [LiquidCrystal_I2C library](https://github.com/johnrickman/LiquidCrystal_I2C)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/Samuel-Jonas/broker-mqtt-esp/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/Samuel-Jonas/broker-mqtt-esp/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/Samuel-Jonas/broker-mqtt-esp/blob/main/LICENSE
+[license-url]: https://github.com/Samuel-Jonas/client-display-mqtt-esp/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/samuel-jonas
 [product-screenshot]: images/project_home.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+

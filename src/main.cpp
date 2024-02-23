@@ -71,40 +71,57 @@ void reconnect() {
     if (client.connect("ESP32Client")) {
       Serial.println("connected");
 
+      lcd.setCursor(0, 0);
+      lcd.print("Connected broker");
+      delay(1000);
+      lcd.clear();
+
       client.subscribe("test/trimble");
     } else {
       Serial.print("failed, client state=");
       Serial.print(client.state());
       Serial.println(" try again in 5 seconds");
+
+      lcd.setCursor(0, 0);
+      lcd.print("Broker fail");
+      delay(1000);
+      lcd.clear();
+
+      lcd.setCursor(0, 0);
+      lcd.print("Trying again");
+      delay(1000);
+      lcd.clear();
+
       delay(5000);
     }
   }
 }
 
 void setup() {
+  lcd.init();
+  Serial.println("LCD was initialized");
+  
+  lcd.backlight(); // turn on the black light
+  lcd.setBacklight(255);
+
+  lcd.setCursor(0, 0);
+  lcd.print("Hello, World!");
+  delay(1000);
+  lcd.clear();
+
   Serial.begin(115200);
   connect_to_wiFi();
+
+  lcd.setCursor(0, 0);
+  lcd.print("Connected wifi");
+  delay(1000);
+  lcd.clear();
 
   client.setCallback(callback);
   client.subscribe(SUBSCRIBE_TOPIC);
   Serial.print("This client was subcribed at: ");
   Serial.println(SUBSCRIBE_TOPIC);
-
-  lcd.init();
-  Serial.println("LCD was initialized");
-  
-  lcd.backlight(); // turn on the black light
-  lcd.noBacklight();
-  lcd.backlight();
-  lcd.setBacklight(255);
   Serial.println("black light is on");
-
-  lcd.setCursor(0, 0);
-
-  lcd.print("Hello, World!");
-  delay(1000);
-
-  lcd.clear();
 }
 
 void loop() {
