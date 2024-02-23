@@ -294,6 +294,9 @@ _Follow these steps to use the project and check the feature._
     "print": "MESSAGE" 
 }
 ```
+<br>
+<br>
+
 16. Replace MESSAGE with your message, need to be maximum 16 characters to see perfecly the message in the display.
 <br>
 <br>
