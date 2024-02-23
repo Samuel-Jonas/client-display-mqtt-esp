@@ -81,7 +81,7 @@ Assessment steps to considering:
 >
 > 7. Write unit tests for your code.
 
-Briefly for my solution to be accordingly with the assessment requirements I've been assuming this:
+Briefly for my solution to be accordingly with the assessment steps I've been assuming this:
 
 * I'm using ESP32 DevKit V1 as the target hardware platform.
 
