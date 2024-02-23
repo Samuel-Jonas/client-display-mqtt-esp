@@ -182,65 +182,65 @@ _Below are the instructions to download and run the application. Please clone bo
 
 _Follow these steps to use the project and check the feature._
 
-1. Connect the first ESP32 into some USB port on your machine. You need a USB cable.
+1.Connect the first ESP32 into some USB port on your machine. You need a USB cable.
 
-2. Search the port name related to your device. On Arch Linux I use this:
+2.Search the port name related to your device. On Arch Linux I use this:
 <br>
 <br>
 <img  src="images/first_USB_port.png" width="680" height="456">
 <br>
 <br>
 
-3. Open **trimblecode-workspace.code-workspace** file with VS Code.
+3.Open **trimblecode-workspace.code-workspace** file with VS Code.
 <br>
 <br>
 <img  src="images/open_workspace.png" width="680" height="456">
 <br>
 <br>
 
-4. Open the broker-mqtt-esp project and replace the value afer '=' of monitor_port and upload_port with related to step 2 in the file **platformio.ini**.
+4.Open the broker-mqtt-esp project and replace the value afer '=' of monitor_port and upload_port with related to step 2 in the file **platformio.ini**.
 <br>
 <br>
 <img  src="images/change_platform_ini.png" width="880" height="456">
 <br>
 <br>
 
-5. Make sure that Switch PlatformIO Project Environment is set to broker-mqtt-esp
+5.Make sure that Switch PlatformIO Project Environment is set to broker-mqtt-esp
 <br>
 <br>
 <img  src="images/broker_workspace.png" width="880" height="456">
 <br>
 <br>
 
-6. Configure the Wifi name and password in broker-mqtt-esp/src/main.cpp
+6.Configure the Wifi name and password in broker-mqtt-esp/src/main.cpp
 <br>
 <br>
 <img  src="images/wifi.png" width="880" height="456">
 <br>
 <br>
 
-7. Build the project.
+7.Build the project.
 <br>
 <br>
 <img  src="images/build.png" width="880" height="456">
 <br>
 <br>
 
-8. Check if the build finish successfully.
+8.Check if the build finish successfully.
 <br>
 <br>
 <img  src="images/sucess_build.png" width="880" height="456">
 <br>
 <br>
 
-9. Now flash the firmware into the ESP32. Check in the terminal window if was uploaded successfully.
+9.Now flash the firmware into the ESP32. Check in the terminal window if was uploaded successfully.
 <br>
 <br>
 <img  src="images/flash.png" width="880" height="456">
 <br>
 <br>
 
-10. See the serial monitor to get the IP address from broker.
+10.See the serial monitor to get the IP address from broker.
 <br>
 <br>
 <img  src="images/monitor.png" width="880" height="456">
@@ -251,28 +251,28 @@ _Follow these steps to use the project and check the feature._
 >>
 >> Once the broker was configured and still running you can continue the process to build and flash the second project called <br>client-diplay-mqtt-esp but before, we will use MQTT Explorer as the publisher program and test our broker connection.
 
-11. Open your MQTT Explorer. Mine open this way:
+11.Open your MQTT Explorer. Mine open this way:
 <br>
 <br>
 <img  src="images/open_explorer.png" width="680" height="456">
 <br>
 <br>
 
-12. Configure your MQTT Explorer connection to that IP address catched in step 10.
+12.Configure your MQTT Explorer connection to that IP address catched in step 10.
 <br>
 <br>
 <img  src="images/connect_mqtt_explorer.png" width="880" height="456">
 <br>
 <br>
 
-13. Repeat from the 1st step to the 9th step with the second ESP32. Remember that in the 5th step the name is client-display-mqtt-esp. See the result below.
+13.Repeat from the 1st step to the 9th step with the second ESP32. Remember that in the 5th step the name is client-display-mqtt-esp. See the result below.
 <br>
 <br>
 <img  src="images/uploading-second-esp.png" width="880" height="456">
 <br>
 <br>
 
-14. It's time to run all application. Connected both ESP32 in different USB ports to power supply them. 
+14.It's time to run all application. Connected both ESP32 in different USB ports to power supply them. 
 <br>
 <br>
 <div>
@@ -282,7 +282,7 @@ _Follow these steps to use the project and check the feature._
 <br>
 <br>
 
-15. Open your MQTT Explorer connected to IP address 192.168.0.5 port 1883. Choose the Topic and set the publish message below.
+15.Open your MQTT Explorer connected to IP address 192.168.0.5 port 1883. Choose the Topic and set the publish message below.
 <br>
 <br>
 <img  src="images/mqtt-explorer-configure.png" width="810" height="456">
@@ -297,14 +297,14 @@ _Follow these steps to use the project and check the feature._
 <br>
 <br>
 
-16. Replace MESSAGE with your message, need to be maximum 16 characters to see perfecly the message in the display.
+16.Replace MESSAGE with your message, need to be maximum 16 characters to see perfecly the message in the display.
 <br>
 <br>
 <img  src="images/publish-message.png" width="810" height="456">
 <br>
 <br>
 
-17. See your display with the message.
+17.See your display with the message.
 <br>
 <br>
 <img  src="images/see-message.jpg" width="462" height="305">
@@ -315,14 +315,14 @@ _Follow these steps to use the project and check the feature._
 
 <!-- UNIT TESTS -->
 ## Unit Tests Usage
-1. Check if the Switch PlatformIO Project Environment is on **client-display-mqtt-esp project**.
+1.Check if the Switch PlatformIO Project Environment is on **client-display-mqtt-esp project**.
 <br>
 <br>
 <img  src="images/unit-test-environment.png" width="880" height="456">
 <br>
 <br>
 
-2. To run PlatformIO: Test click on the chemical baker symbol close to the trash symbol.
+2.To run PlatformIO: Test click on the chemical baker symbol close to the trash symbol.
 <br>
 <br>
 <img  src="images/running-tests.png" width="880" height="456">
